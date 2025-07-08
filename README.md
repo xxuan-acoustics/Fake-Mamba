@@ -96,8 +96,10 @@ python evaluate_in_the_wild.py scores/scores_Wild.txt ./keys eval
 ``` 
 
 ## Results using pre-trained model:
-EER: 1.74 % on ASVspoof 2021 DF dataset.
-EER: 0.97 % on ASVspoof 2021 LA dataset.
-EER: 5.85 % on In-the-Wild dataset.
+| Dataset                     | EER (%) |
+|-----------------------------|---------|
+| ASVspoof 2021 DF            | 1.74    |
+| ASVspoof 2021 LA            | 0.97    |
+| In-the-Wild                 | 5.85    |
 
 
