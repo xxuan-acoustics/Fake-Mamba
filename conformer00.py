@@ -324,9 +324,9 @@ from mamba_ssm.modules.mamba_simple import Mamba
 
 # from mamba.mamba_ssm.modules.mamba_simple import Mamba#exp75，76
 
-class BiMambaEncoder(nn.Module):
+class PN_BiMambas_Encoder(nn.Module):
     def __init__(self, d_model, n_state):
-        super(BiMambaEncoder, self).__init__()
+        super(PN_BiMambas_Encoder, self).__init__()
         self.d_model = d_model
         
         self.mamba = Mamba(d_model, n_state)
@@ -338,7 +338,7 @@ class BiMambaEncoder(nn.Module):
         # self.concat_norm2 = nn.LayerNorm(d_model)
 
         self.feed_forward = nn.Sequential(
-            nn.Linear(d_model, d_model * 4),#concat的时候加上2 * d_model
+            nn.Linear(d_model, d_model * 4),
             nn.GELU(),
             nn.Linear(d_model * 4, d_model)
         )
@@ -459,7 +459,7 @@ class BiMambaEncoder(nn.Module):
 
         
     
-class BiMambas_FFN(nn.Module):
+class PN_BiMambas(nn.Module):
     def __init__(
         self,
         dim,
@@ -480,7 +480,7 @@ class BiMambas_FFN(nn.Module):
         self.layers = nn.ModuleList([])
 
         for _ in range(depth):
-            self.layers.append(BiMambaEncoder(
+            self.layers.append(PN_BiMambas_Encoder(
                 d_model = dim, 
                 n_state = 16
             ))
