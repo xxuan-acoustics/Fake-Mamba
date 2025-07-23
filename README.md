@@ -58,7 +58,7 @@ Download the XLS-R models from [here](https://github.com/pytorch/fairseq/tree/ma
 ## Training model
 To train the model run:
 ```
-CUDA_VISIBLE_DEVICES=0 python main.py --track=DF --lr=0.000001 --batch_size=5 --loss=WCE  --num_epochs=50
+CUDA_VISIBLE_DEVICES=0 python main.py --track=DF --lr=0.000001 --batch_size=20 --loss=WCE  --num_epochs=50
 ```
 ## Testing
 
@@ -76,15 +76,9 @@ CUDA_VISIBLE_DEVICES=0 python main.py   --track=LA --is_eval --eval
                                         --database_path=/path/to/your/ASVspoof2021_LA_eval/ 
                                         --eval_output=/path/to/your/scores_LA.txt
 
-CUDA_VISIBLE_DEVICES=0 python main.py   --track=In-the-Wild --is_eval --eval 
-                                        --model_path=/path/to/your/best_model.pth
-                                        --protocols_path=database/ASVspoof_DF_cm_protocols/in_the_wild.eval.txt 
-                                        --database_path=/path/to/your/release_in_the_wild/ 
-                                        --eval_output=/path/to/your/scores_In-the-Wild.txt
 ```
 We also provide a pre-trained model. To use it, you can download from [here](https://drive.google.com/drive/folders/13vw_AX1jHdYndRu1edlgpdNJpCX8OnrH?usp=sharing) and change the --model_path to our pre-trained model.
 
-[Here](https://pan.baidu.com/s/1dj-hjvf3fFPIYdtHWqtCmg?pwd=shan) is the baidu download link.
 
 Compute the EER(%) use three 'scores.txt' file
 ```
@@ -92,7 +86,7 @@ python evaluate_2021_DF.py scores/scores_DF.txt ./keys eval
 
 python evaluate_2021_LA.py scores/scores_LA.txt ./keys eval
 
-python evaluate_in_the_wild.py scores/scores_Wild.txt ./keys eval
+python SITW-DF_test.py
 ``` 
 
 ## Results using pre-trained model:
