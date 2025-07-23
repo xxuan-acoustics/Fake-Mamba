@@ -107,7 +107,7 @@ class SSLModel24(nn.Module):  # W2V
         return torch.stack(outputs, dim=1)  # 将每层的特征堆叠到一起
 
 
-class XLSR_BiMamba_FFN_Model(nn.Module):
+class Fake_Mamba(nn.Module):
     def __init__(self, args, device):
         super().__init__()
         self.device = device
@@ -117,14 +117,14 @@ class XLSR_BiMamba_FFN_Model(nn.Module):
         ####
         self.ssl_model = SSLModel(self.device)
         self.LL = nn.Linear(1024, args.emb_size)
-        print('W2V + BiMambas_FFN')
+        print('Fake_Mamba')
 
         # Additional layers before encoder
         self.first_bn = nn.BatchNorm2d(num_features=1)
         self.selu = nn.SELU(inplace=True)
 
         # Encoder (BiMamba)
-        self.encoder = BiMambas_FFN(dim=144, depth=7)
+        self.encoder = PN_BiMambas(dim=144, depth=7)
 
         # Pooling layer (Attention Pooling)
         self.attention_pool = nn.Linear(144, 1)  # Output attention weights along the time dimension
