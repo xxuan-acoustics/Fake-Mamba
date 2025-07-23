@@ -120,7 +120,7 @@ if __name__ == '__main__':
     
     # model_save_path = os.path.join('./store_models', 'Exp16')############################
     # model_save_path = os.path.join('./models', 'Exp65')############################
-    model_save_path = os.path.join('/nlp/nlp-xxuan/models/', 'Exp174')############################/.'  yt67
+    model_save_path = os.path.join('/nlp/nlp-xxuan/models/', 'Exp174')############################
     
     # print('Model tag: '+ model_tag)s
     print("model_save_path",model_save_path)
@@ -147,97 +147,12 @@ if __name__ == '__main__':
 
     torch.cuda.empty_cache()
     
-    # model = Model(args,device)#9
 
-    # model = XLSR_BiMamba_CLS(args,device)#80LA
+    model = XLSX_BiMamba_FFN_Model(args,device)#65LA,66DF(BiMamba_FFN)
 
-    # model = XLSR_BiMamba_CLS(args,device)#82LA,83DF-MyBiMamba-_get_clones(BiMambaEncoder
+    # model = XLSR_Conformer(args,device)#和XLSR_BIMAMBA对比，改掉encoder，exp132
 
-    # model = Model(args,device)#baseline,37DF(EXP9,16LA_FIXED)(EXP20DF_FIXED)
-
-    # model = Model2(args,device)#baseline-val_test(EXP9,16LA_VAR)(EXP20DF_VAR)
-
-    # model = ConBiMamba_Model(args,device)
-
-    # model = ConBiMamba_Model00(args,device)#exp18,22 #7要加上fc
-
-    # model = ConBiMamba_Model00_CLS(args,device)#exp23,24
-
-    # model = ConBiMamba_Model00_CLS_ASP(args,device)#exp25
-
-    # model = SSL_Model00_CLS_ASP(args,device)#exp26
-
-    # model = ConBiMamba_Model00_CLS_ASP(args,device)#exp25,28
-    #----------------------------------------------------------------
-    # model = Model(args,device)#baseline,37DF
-
-    # model = Model2(args,device)#baseline-val_test,39
-
-    # model = TCM_Model(args,device)#TCM
-
-    # model = ConBiMamba_Model(args,device)#exp15
-
-    # model = Model(args,device)#baseline-exp16,conformer00
-
-    # model = ConBiMamba_Model00(args,device)#exp17(conformer4,head4),18(conformer17,head4),17和18没有用MHSA，所以head没有传入
-    # 19(FFN+BIMAMBA+MHSA+CONV+FFN,conformer17,head4),34,36,38DF
-    
-
-    # model = ConBiMamba_Model00_CLS(args,device)#exp23,24
-
-    # model = ConBiMamba_Model00_CLS_ASP(args,device)#exp25,28
-
-    # model = SSL_Model00_CLS_ASP(args,device)#exp26,27,35
-
-    # model = ASP_ConBiMamba_Model00(args,device)#EXP
-
-    # model = ConBiMamba_Model00_var(args,device)#exp18_test_val
-
-    # model = ConBiMamba_AM_Model(args,device)
-
-    # model = ConBiMamba_Model00_mutil_ASP(args,device)#EXP29,conformer_block=4
-
-    # model = SSL_24output_ConBiMamba_Model00(args,device)#EXP32
-
-    # model = XLSX_SLS_Model(args,device)#40DF,42LA
-    
-
-    # model = XLSX_Mamba1_Model(args,device)#41LA,44LA,45LA(conbimamba,删掉conv+ffn,只剩bimamba),46LA(45基础上删除下采样)
-
-    # model = XLSX_SLS_Mamba_Model(args,device)#47LA
-
-    # model = XLSX_SLS_Mamba_Model(args,device)#47LA,49DF，50LA,51LA
-
-    # model = XLSX_SLS_Mamba_Model(args,device)#47LA,49DF，50LA，51LA,55LA(重跑47LA)
-
-    # model = XLSX_SLS_Dual_Mamba_Model(args,device)#52LA,53LA(+LayersNorm)
-
-    # model = XLSX_CBAM_SLS_Model(args,device)#56LA
-
-    # model = MambaModel(args,device)#57LA,58DF
-
-    # model = ML_MambaModel(args,device)#(SE)59LA,60DF
-
-    # model = ML_CBAM_MambaModel(args,device)#61LA,62DF
-
-    # model = OnlyMambaModel(args,device)#63LA,64DF(Mamba)
-
-    # model = XLSX_BiMamba_FFN_Model(args,device)#65LA,66DF(BiMamba_FFN)
-
-    # model = ML_XLSX_BiMamba_FFN_Model(args,device)#67LA,68DF(BiMamba_FFN)
-
-    # model = ML_XLSX_10_BiMamba_FFN_Model(args,device)
-
-    # model = ML_XLSX_BiMamba_FFN_SLS_Model(args,device)#73LA,74DF
-
-    # model = ML_XLSR_Conformer(args,device)
-
-    model = XLSR_Conformer(args,device)#和XLSR_BIMAMBA对比，改掉encoder，exp132
-
-
-    # model = XLSR_AttW_Conformer(args,device)#和XLSR_BIMAMBA对比，改掉encoder，exp142
-
-    # model = XLSX_Transformer(args,device)
+    # model = XLSR_Transformer(args,device)
 
 
 
